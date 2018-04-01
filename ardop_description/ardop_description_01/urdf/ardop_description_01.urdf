@@ -630,7 +630,7 @@
 		<limit
 			effort="30"
 			velocity="3"
-			lower="-1.5708"
+			lower="-0.6"
 			upper="1.5708" />
 	</joint>
 </robot>
