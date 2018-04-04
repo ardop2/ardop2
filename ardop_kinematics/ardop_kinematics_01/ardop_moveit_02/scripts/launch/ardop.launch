@@ -1,0 +1,8 @@
+<launch>
+
+<include file="$(find ardop_moveit_01)/launch/demo.launch"/>
+
+<node name="ardop" pkg="ardop_moveit_01" type="ardop_test_01.py" respawn="false" output="screen">
+</node>
+
+</launch>

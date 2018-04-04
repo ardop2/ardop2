@@ -1,0 +1,11 @@
+controller_list:
+  - name: fake_right_arm_controller
+    joints:
+      - shoulder_1_joint
+      - upper_1_joint
+      - upper_2_joint
+      - lower_1_joint
+      - lower_2_joint
+  - name: fake_end_effector_controller
+    joints:
+      - end_effector_joint

@@ -1,0 +1,10 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: ardop_description_02
+    relative_path: urdf/ardop_description_02.urdf
+  SRDF:
+    relative_path: config/ardop_description_02.srdf
+  CONFIG:
+    author_name: Aditya Bhat K
+    author_email: bhataditya26@gmail.com
+    generated_timestamp: 1522851361
