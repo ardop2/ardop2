@@ -1,0 +1,37 @@
+<launch>
+	<param 
+		name="robot_description" 
+		textfile="$(find ardop_description_02)/urdf/ardop_description_02.urdf" />
+
+	<node
+		name="urdf_spawner"
+		pkg="gazebo_ros"
+		type="spawn_model"
+		respawn="false"
+		args="-urdf -model ardop_model -param robot_description -y -6"
+		output="screen" />
+
+	<rosparam
+		file="$(find ardop_description_02)/config/config.yaml"
+		command="load" />
+
+	<node
+		name="controller_spawner"
+		pkg="controller_manager"
+		type="spawner"
+		ns="/ardop_model"
+		args="shoulder_1_joint_position_controller upper_1_joint_position_controller upper_2_joint_position_controller lower_1_joint_position_controller lower_2_joint_position_controller end_effector_joint_position_controller wheel_front_left_joint_position_controller wheel_front_right_joint_position_controller wheel_back_left_joint_position_controller wheel_back_right_joint_position_controller joint_state_controller --shutdown-timeout 3" />
+
+	<node
+		name="robot_state_publisher"
+		pkg="robot_state_publisher"
+		type="robot_state_publisher"
+		respawn="false"
+		output="screen">
+
+		<remap
+			from="/joint_states"
+			to="/ardop_model/joint_states" />
+	</node>
+
+</launch>
