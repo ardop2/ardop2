@@ -709,12 +709,19 @@
 		<turnGravityOff>false</turnGravityOff>
 	</gazebo>
 
+	<gazebo>
+		<plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+			<robotNamespace>/ardop_model</robotNamespace>
+			<robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+		</plugin>
+	</gazebo>
+
 	<transmission name="wheel_front_left_joint_trans">
 		<type>transmission_interface/SimpleTransmission</type>
-		<joint 
-			name="wheel_front_left_joint" />
-		<actuator 
-			name="wheel_front_left_motor">
+		<joint name="wheel_front_left_joint">
+			<hardwareInterface>EffortJointInterface</hardwareInterface>
+		</joint>
+		<actuator name="wheel_front_left_motor">
 			<hardwareInterface>EffortJointInterface</hardwareInterface>
 			<mechanicalReduction>1</mechanicalReduction>
 		</actuator>
@@ -722,10 +729,10 @@
 
 	<transmission name="wheel_front_right_joint_trans">
 		<type>transmission_interface/SimpleTransmission</type>
-		<joint 
-			name="wheel_front_right_joint" />
-		<actuator 
-			name="wheel_front_right_motor">
+		<joint name="wheel_front_right_joint">
+			<hardwareInterface>EffortJointInterface</hardwareInterface>
+		</joint>
+		<actuator name="wheel_front_right_motor">
 			<hardwareInterface>EffortJointInterface</hardwareInterface>
 			<mechanicalReduction>1</mechanicalReduction>
 		</actuator>
@@ -733,10 +740,10 @@
 
 	<transmission name="wheel_back_left_joint_trans">
 		<type>transmission_interface/SimpleTransmission</type>
-		<joint 
-			name="wheel_back_left_joint" />
-		<actuator 
-			name="wheel_back_left_motor">
+		<joint name="wheel_back_left_joint">
+			<hardwareInterface>EffortJointInterface</hardwareInterface>
+		</joint>
+		<actuator name="wheel_back_left_motor">
 			<hardwareInterface>EffortJointInterface</hardwareInterface>
 			<mechanicalReduction>1</mechanicalReduction>
 		</actuator>
@@ -744,10 +751,76 @@
 
 	<transmission name="wheel_back_right_joint_trans">
 		<type>transmission_interface/SimpleTransmission</type>
-		<joint 
-			name="wheel_back_right_joint" />
-		<actuator 
-			name="wheel_back_right_motor">
+		<joint name="wheel_back_right_joint">
+			<hardwareInterface>EffortJointInterface</hardwareInterface>
+		</joint>
+		<actuator name="wheel_back_right_motor">
+			<hardwareInterface>EffortJointInterface</hardwareInterface>
+			<mechanicalReduction>1</mechanicalReduction>
+		</actuator>
+	</transmission>
+
+	<transmission name="shoulder_1_joint_trans">
+		<type>transmission_interface/SimpleTransmission</type>
+		<joint name="shoulder_1_joint">
+			<hardwareInterface>EffortJointInterface</hardwareInterface>
+		</joint>
+		<actuator name="shoulder_1_servo">
+			<hardwareInterface>EffortJointInterface</hardwareInterface>
+			<mechanicalReduction>1</mechanicalReduction>
+		</actuator>
+	</transmission>
+
+	<transmission name="upper_1_joint_trans">
+		<type>transmission_interface/SimpleTransmission</type>
+		<joint name="upper_1_joint">
+			<hardwareInterface>EffortJointInterface</hardwareInterface>
+		</joint>
+		<actuator name="upper_1_servo">
+			<hardwareInterface>EffortJointInterface</hardwareInterface>
+			<mechanicalReduction>1</mechanicalReduction>
+		</actuator>
+	</transmission>
+
+	<transmission name="upper_2_joint_trans">
+		<type>transmission_interface/SimpleTransmission</type>
+		<joint name="upper_2_joint">
+			<hardwareInterface>EffortJointInterface</hardwareInterface>
+		</joint>
+		<actuator name="upper_2_servo">
+			<hardwareInterface>EffortJointInterface</hardwareInterface>
+			<mechanicalReduction>1</mechanicalReduction>
+		</actuator>
+	</transmission>
+
+	<transmission name="lower_1_joint_trans">
+		<type>transmission_interface/SimpleTransmission</type>
+		<joint name="lower_1_joint">
+			<hardwareInterface>EffortJointInterface</hardwareInterface>
+		</joint>
+		<actuator name="lower_1_servo">
+			<hardwareInterface>EffortJointInterface</hardwareInterface>
+			<mechanicalReduction>1</mechanicalReduction>
+		</actuator>
+	</transmission>
+
+	<transmission name="lower_2_joint_trans">
+		<type>transmission_interface/SimpleTransmission</type>
+		<joint name="lower_2_joint">
+			<hardwareInterface>EffortJointInterface</hardwareInterface>
+		</joint>
+		<actuator name="lower_2_servo">
+			<hardwareInterface>EffortJointInterface</hardwareInterface>
+			<mechanicalReduction>1</mechanicalReduction>
+		</actuator>
+	</transmission>
+
+	<transmission name="end_effector_joint_trans">
+		<type>transmission_interface/SimpleTransmission</type>
+		<joint name="end_effector_joint">
+			<hardwareInterface>EffortJointInterface</hardwareInterface>
+		</joint>
+		<actuator name="end_effector_servo">
 			<hardwareInterface>EffortJointInterface</hardwareInterface>
 			<mechanicalReduction>1</mechanicalReduction>
 		</actuator>
