@@ -454,7 +454,7 @@
 		type="revolute">
 		<origin
 			xyz="9.3209E-05 0 -0.10405"
-			rpy="0 0 0" />
+			rpy="0 0.04 0" />
 		<parent
 			link="upper_1_link" />
 		<child
@@ -517,7 +517,7 @@
 		type="revolute">
 		<origin
 			xyz="0.0024117 0.025054 -0.070238"
-			rpy="0 0 0" />
+			rpy="0 -0.04 0" />
 		<parent
 			link="upper_2_link" />
 		<child
@@ -719,10 +719,10 @@
 	<transmission name="wheel_front_left_joint_trans">
 		<type>transmission_interface/SimpleTransmission</type>
 		<joint name="wheel_front_left_joint">
-			<hardwareInterface>EffortJointInterface</hardwareInterface>
+			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
 		</joint>
 		<actuator name="wheel_front_left_motor">
-			<hardwareInterface>EffortJointInterface</hardwareInterface>
+			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
 			<mechanicalReduction>1</mechanicalReduction>
 		</actuator>
 	</transmission>
@@ -730,10 +730,10 @@
 	<transmission name="wheel_front_right_joint_trans">
 		<type>transmission_interface/SimpleTransmission</type>
 		<joint name="wheel_front_right_joint">
-			<hardwareInterface>EffortJointInterface</hardwareInterface>
+			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
 		</joint>
 		<actuator name="wheel_front_right_motor">
-			<hardwareInterface>EffortJointInterface</hardwareInterface>
+			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
 			<mechanicalReduction>1</mechanicalReduction>
 		</actuator>
 	</transmission>
@@ -741,10 +741,10 @@
 	<transmission name="wheel_back_left_joint_trans">
 		<type>transmission_interface/SimpleTransmission</type>
 		<joint name="wheel_back_left_joint">
-			<hardwareInterface>EffortJointInterface</hardwareInterface>
+			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
 		</joint>
 		<actuator name="wheel_back_left_motor">
-			<hardwareInterface>EffortJointInterface</hardwareInterface>
+			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
 			<mechanicalReduction>1</mechanicalReduction>
 		</actuator>
 	</transmission>
@@ -752,10 +752,10 @@
 	<transmission name="wheel_back_right_joint_trans">
 		<type>transmission_interface/SimpleTransmission</type>
 		<joint name="wheel_back_right_joint">
-			<hardwareInterface>EffortJointInterface</hardwareInterface>
+			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
 		</joint>
 		<actuator name="wheel_back_right_motor">
-			<hardwareInterface>EffortJointInterface</hardwareInterface>
+			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
 			<mechanicalReduction>1</mechanicalReduction>
 		</actuator>
 	</transmission>
@@ -763,10 +763,10 @@
 	<transmission name="shoulder_1_joint_trans">
 		<type>transmission_interface/SimpleTransmission</type>
 		<joint name="shoulder_1_joint">
-			<hardwareInterface>EffortJointInterface</hardwareInterface>
+			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
 		</joint>
 		<actuator name="shoulder_1_servo">
-			<hardwareInterface>EffortJointInterface</hardwareInterface>
+			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
 			<mechanicalReduction>1</mechanicalReduction>
 		</actuator>
 	</transmission>
@@ -774,10 +774,10 @@
 	<transmission name="upper_1_joint_trans">
 		<type>transmission_interface/SimpleTransmission</type>
 		<joint name="upper_1_joint">
-			<hardwareInterface>EffortJointInterface</hardwareInterface>
+			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
 		</joint>
 		<actuator name="upper_1_servo">
-			<hardwareInterface>EffortJointInterface</hardwareInterface>
+			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
 			<mechanicalReduction>1</mechanicalReduction>
 		</actuator>
 	</transmission>
@@ -785,10 +785,10 @@
 	<transmission name="upper_2_joint_trans">
 		<type>transmission_interface/SimpleTransmission</type>
 		<joint name="upper_2_joint">
-			<hardwareInterface>EffortJointInterface</hardwareInterface>
+			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
 		</joint>
 		<actuator name="upper_2_servo">
-			<hardwareInterface>EffortJointInterface</hardwareInterface>
+			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
 			<mechanicalReduction>1</mechanicalReduction>
 		</actuator>
 	</transmission>
@@ -796,10 +796,10 @@
 	<transmission name="lower_1_joint_trans">
 		<type>transmission_interface/SimpleTransmission</type>
 		<joint name="lower_1_joint">
-			<hardwareInterface>EffortJointInterface</hardwareInterface>
+			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
 		</joint>
 		<actuator name="lower_1_servo">
-			<hardwareInterface>EffortJointInterface</hardwareInterface>
+			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
 			<mechanicalReduction>1</mechanicalReduction>
 		</actuator>
 	</transmission>
@@ -807,10 +807,10 @@
 	<transmission name="lower_2_joint_trans">
 		<type>transmission_interface/SimpleTransmission</type>
 		<joint name="lower_2_joint">
-			<hardwareInterface>EffortJointInterface</hardwareInterface>
+			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
 		</joint>
 		<actuator name="lower_2_servo">
-			<hardwareInterface>EffortJointInterface</hardwareInterface>
+			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
 			<mechanicalReduction>1</mechanicalReduction>
 		</actuator>
 	</transmission>
@@ -818,10 +818,10 @@
 	<transmission name="end_effector_joint_trans">
 		<type>transmission_interface/SimpleTransmission</type>
 		<joint name="end_effector_joint">
-			<hardwareInterface>EffortJointInterface</hardwareInterface>
+			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
 		</joint>
 		<actuator name="end_effector_servo">
-			<hardwareInterface>EffortJointInterface</hardwareInterface>
+			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
 			<mechanicalReduction>1</mechanicalReduction>
 		</actuator>
 	</transmission>

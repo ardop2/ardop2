@@ -1,7 +1,6 @@
-# ARDOP 2.0 - Title
+# ARDOP 2.0 - URDF Description
 
 ## Setup
-TODO: Provide links and commands
  
 1. Install Gazebo  
 2. Install Gazebo ROS Plugins  
