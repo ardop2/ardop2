@@ -1,31 +1,35 @@
 <package>
-  <name>ardop_description_02</name>
-  <version>1.0.0</version>
-  <description>
-    <p>URDF Description package for ardop_description_02</p>
-    <p>This package contains configuration data, 3D models and launch files
+	<name>ardop_description_02</name>
+	<version>1.0.0</version>
+	
+	<description>
+		<p>URDF Description package for ardop_description_02</p>
+		<p>This package contains configuration data, 3D models and launch files
 for ardop_description_02 robot</p>
-  </description>
-  <author>Heethesh Vhavle</author>
-  <maintainer email="heethesh@cmu.edu" />
-  <license>BSD</license>
+	</description>
 
-  <buildtool_depend>catkin</buildtool_depend>
-  <build_depend>roslaunch</build_depend>
-  <build_depend>controller_manager</build_depend>
-  <build_depend>urdf</build_depend>
-  <build_depend>control_toolbox</build_depend> 
+	<author>Heethesh Vhavle</author>
+	<maintainer email="heethesh@cmu.edu" />
+	<license>BSD</license>
 
-  <run_depend>robot_state_publisher</run_depend>
-  <run_depend>rviz</run_depend>
-  <run_depend>joint_state_publisher</run_depend>
-  <run_depend>control_toolbox</run_depend> 
-  <run_depend>controller_manager</run_depend>
-  <run_depend>gazebo</run_depend>
-  <run_depend>urdf</run_depend>  
+	<buildtool_depend>catkin</buildtool_depend>
+	<build_depend>roslaunch</build_depend>
+	<build_depend>controller_manager</build_depend>
+	<build_depend>urdf</build_depend>
+	<build_depend>control_toolbox</build_depend> 
+	<build_depend>robot_state_publisher</build_depend>
 
-  <export>
-    <gazebo_ros_control plugin="${prefix}/robot_hw_sim_plugins.xml" />
-    <architecture_independent />
-  </export>
+	<run_depend>robot_state_publisher</run_depend>
+	<run_depend>rviz</run_depend>
+	<run_depend>joint_state_publisher</run_depend>
+	<run_depend>control_toolbox</run_depend> 
+	<run_depend>controller_manager</run_depend>
+	<run_depend>gazebo</run_depend>
+	<run_depend>urdf</run_depend>  
+
+	<export>
+		<gazebo_ros_control plugin="${prefix}/robot_hw_sim_plugins.xml" />
+		<architecture_independent />
+	</export>
+	
 </package>
