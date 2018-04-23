@@ -1,0 +1,57 @@
+<launch>
+
+	<arg name="debug" default="false" />
+	<arg name="use_gui" default="false" />
+
+	<!-- Load the URDF, SRDF and other .yaml configuration files on the param server -->
+	<include file="$(find ardop_moveit_config)/launch/planning_context.launch">
+		<arg name="load_robot_description" value="true"/>
+	</include>
+
+	<!-- Load MoveIt controller manager -->
+	<include file="$(find ardop_moveit_config)/launch/ardop_moveit_controller_manager.launch.xml"/>
+	<rosparam command="load" file="$(find ardop_moveit_config)/config/joint_names.yaml"/>
+
+	<!-- Launch Gazebo simulation -->
+	<include file="$(find ardop_moveit_config)/launch/gazebo.launch"/>
+
+	<!-- If needed, broadcast static tf for robot root -->
+	<node 
+		pkg="tf" 
+		type="static_transform_publisher" 
+		name="virtual_joint_broadcaster_0" 
+		args="0 0 0 0 0 0 world odom 100" />
+
+	<!-- Joint State Publisher -->
+	<node 
+		name="joint_state_publisher" 
+		pkg="joint_state_publisher" 
+		type="joint_state_publisher">
+		<param name="/use_gui" value="$(arg use_gui)"/>
+		<rosparam param="/source_list">[/ardop/joint_states]</rosparam>
+	</node>
+
+	<!-- Robot State Publisher -->
+	<node
+		name="robot_state_publisher"
+		pkg="robot_state_publisher"
+		type="robot_state_publisher"
+		respawn="false"
+		output="screen">
+	</node>
+
+	<!-- Launch move_group -->
+	<include file="$(find ardop_moveit_config)/launch/move_group.launch">
+		<arg name="allow_trajectory_execution" value="true"/>
+		<arg name="fake_execution" value="false"/>
+		<arg name="info" value="true"/>
+		<arg name="debug" value="$(arg debug)"/>
+	</include>
+
+	<!-- Run Rviz and load the default config to see the state of the move_group node -->
+	<include file="$(find ardop_moveit_config)/launch/moveit_rviz.launch">
+		<arg name="config" value="true"/>
+		<arg name="debug" value="$(arg debug)"/>
+	</include>
+
+</launch>

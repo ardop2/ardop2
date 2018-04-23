@@ -1,0 +1,37 @@
+<launch>
+
+	<!-- Launch empty Gazebo world -->
+	<include
+		file="$(find gazebo_ros)/launch/empty_world.launch" >
+		<arg name="verbose" value="true"/>
+	</include>
+
+	<!-- Load URDF model -->
+	<param 
+		name="robot_description" 
+		textfile="$(find ardop_description)/urdf/ardop_description.urdf"/>
+
+	<!-- Spawn URDF model into Gazebo -->
+	<node
+		name="spawn_model"
+		pkg="gazebo_ros"
+		type="spawn_model"
+		respawn="false"
+		args="-file $(find ardop_description)/urdf/ardop_description.urdf -urdf -model ardop_description"
+		output="screen" />
+
+	<!-- Load joint trajectory controllers -->
+	<rosparam
+		file="$(find ardop_description)/config/trajectory_controllers.yaml"
+		command="load" />
+
+	<!-- Spawn controllers for Gazebo -->
+	<node
+		name="controller_spawner"
+		pkg="controller_manager"
+		type="spawner"
+		respawn="false"
+		ns="/ardop"
+		args="arm_controller gripper_controller chassis_controller joint_state_controller"/>
+
+</launch>

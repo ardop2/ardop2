@@ -907,10 +907,10 @@
 	<transmission name="end_effector_joint_trans">
 		<type>transmission_interface/SimpleTransmission</type>
 		<joint name="end_effector_joint">
-			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+			<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
 		</joint>
 		<actuator name="end_effector_servo">
-			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+			<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
 			<mechanicalReduction>1</mechanicalReduction>
 		</actuator>
 	</transmission>

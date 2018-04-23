@@ -1,4 +1,5 @@
 <launch>
+
  	<include
 		file="$(find gazebo_ros)/launch/empty_world.launch" >
 		<arg name="verbose" value="true" />
@@ -22,4 +23,5 @@
 		pkg="rostopic"
 		type="rostopic"
 		args="pub /calibrated std_msgs/Bool true" />
+
 </launch>

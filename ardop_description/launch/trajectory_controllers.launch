@@ -18,7 +18,7 @@
 		output="screen" />
 
 	<rosparam
-		file="$(find ardop_description)/config/gazebo_controllers.yaml"
+		file="$(find ardop_description)/config/trajectory_controllers.yaml"
 		command="load" />
 
 	<node
@@ -27,7 +27,7 @@
 		type="spawner"
 		respawn="false"
 		ns="/ardop"
-		args="shoulder_1_joint_position_controller upper_1_joint_position_controller upper_2_joint_position_controller lower_1_joint_position_controller lower_2_joint_position_controller lower_3_joint_position_controller end_effector_joint_position_controller wheel_front_left_joint_position_controller wheel_front_right_joint_position_controller wheel_back_left_joint_position_controller wheel_back_right_joint_position_controller joint_state_controller" />
+		args="arm_controller gripper_controller chassis_controller joint_state_controller" />
 
 	<node
 		name="robot_state_publisher"
