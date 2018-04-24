@@ -1,0 +1,41 @@
+digraph G {
+node [shape=box];
+"odom" [label="odom"];
+"base_link" [label="base_link"];
+"shoulder_1_link" [label="shoulder_1_link"];
+"upper_1_link" [label="upper_1_link"];
+"upper_2_link" [label="upper_2_link"];
+"lower_1_link" [label="lower_1_link"];
+"lower_2_link" [label="lower_2_link"];
+"lower_3_link" [label="lower_3_link"];
+"end_effector_link" [label="end_effector_link"];
+"wheel_back_left_link" [label="wheel_back_left_link"];
+"wheel_back_right_link" [label="wheel_back_right_link"];
+"wheel_front_left_link" [label="wheel_front_left_link"];
+"wheel_front_right_link" [label="wheel_front_right_link"];
+node [shape=ellipse, color=blue, fontcolor=blue];
+"odom" -> "odom_joint" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
+"odom_joint" -> "base_link"
+"base_link" -> "shoulder_1_joint" [label="xyz: -0.0281 -0.25288 0.504 \nrpy: 0 -0 0"]
+"shoulder_1_joint" -> "shoulder_1_link"
+"shoulder_1_link" -> "upper_1_joint" [label="xyz: 0.027024 -0.075963 0.0044026 \nrpy: 0 -0.034323 0"]
+"upper_1_joint" -> "upper_1_link"
+"upper_1_link" -> "upper_2_joint" [label="xyz: 9.3209e-05 0 -0.10405 \nrpy: 0 0.034323 0"]
+"upper_2_joint" -> "upper_2_link"
+"upper_2_link" -> "lower_1_joint" [label="xyz: 0.0024117 0.025054 -0.070238 \nrpy: 0 -0 0"]
+"lower_1_joint" -> "lower_1_link"
+"lower_1_link" -> "lower_2_joint" [label="xyz: 0 -0.030211 -0.12948 \nrpy: 0 -0 0"]
+"lower_2_joint" -> "lower_2_link"
+"lower_2_link" -> "lower_3_joint" [label="xyz: 0.0004864 0.0019612 -0.093575 \nrpy: 0 -0 0"]
+"lower_3_joint" -> "lower_3_link"
+"lower_3_link" -> "end_effector_joint" [label="xyz: 0.020065 0.0095794 -0.03 \nrpy: 0 -0 0"]
+"end_effector_joint" -> "end_effector_link"
+"base_link" -> "wheel_back_left_joint" [label="xyz: -0.2 0.1895 0.05 \nrpy: 0 -0 0"]
+"wheel_back_left_joint" -> "wheel_back_left_link"
+"base_link" -> "wheel_back_right_joint" [label="xyz: -0.2 -0.1895 0.05 \nrpy: 0 -0 0"]
+"wheel_back_right_joint" -> "wheel_back_right_link"
+"base_link" -> "wheel_front_left_joint" [label="xyz: 0.03 0.1895 0.05 \nrpy: 0 -0 0"]
+"wheel_front_left_joint" -> "wheel_front_left_link"
+"base_link" -> "wheel_front_right_joint" [label="xyz: 0.03 -0.1895 0.05 \nrpy: 0 -0 0"]
+"wheel_front_right_joint" -> "wheel_front_right_link"
+}
