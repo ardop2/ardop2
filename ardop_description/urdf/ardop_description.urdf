@@ -1,981 +1,647 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <robot
-	name="ardop">
-	<link name="odom" />
-
-	<link
-		name="base_link">
-		<inertial>
-			<origin
-				xyz="-0.05669211 -0.00059544 0.13127776"
-				rpy="0 0 0" />
-			<mass
-				value="6" />
-			<inertia
-				ixx="0.000324"
-				ixy="0.000000"
-				ixz="-0.000054"
-				iyy="0.000398"
-				iyz="-0.018212"
-				izz="0.000293" />
-		</inertial>
-		<visual>
-			<origin
-				xyz="0 0 0"
-				rpy="0 0 0" />
-			<geometry>
-				<mesh
-					filename="package://ardop_description/meshes/base_link.STL" />
-			</geometry>
-			<material
-				name="cream">
-				<color
-					rgba="0.93 0.94 0.95 1" />
-			</material>
-		</visual>
-		<collision>
-			<origin
-				xyz="0 0 0"
-				rpy="0 0 0" />
-			<geometry>
-				<mesh
-					filename="package://ardop_description/meshes/base_link.STL" />
-			</geometry>
-		</collision>
-	</link>
-
-	<joint
-		name="odom_joint"
-		type="fixed">
-		<parent
-			link="odom" />
-		<child
-			link="base_link" />
-	</joint>
-
-	<link
-		name="wheel_front_left_link">
-		<inertial>
-			<origin
-				xyz="0 0.02096815 0"
-				rpy="0 0 0" />
-			<mass
-				value="0.4" />
-			<inertia
-				ixx="0"
-				ixy="0"
-				ixz="0"
-				iyy="0"
-				iyz="0"
-				izz="0" />
-		</inertial>
-		<visual>
-			<origin
-				xyz="0 0 0"
-				rpy="0 0 0" />
-			<geometry>
-				<mesh
-					filename="package://ardop_description/meshes/wheel_front_left_link.STL" />
-			</geometry>
-			<material
-				name="dark_blue">
-				<color
-					rgba="0.17 0.24 0.31 1" />
-			</material>
-		</visual>
-		<collision>
-			<origin
-				xyz="0 0 0"
-				rpy="0 0 0" />
-			<geometry>
-				<mesh
-					filename="package://ardop_description/meshes/wheel_front_left_link.STL" />
-			</geometry>
-		</collision>
-	</link>
-
-	<joint
-		name="wheel_front_left_joint"
-		type="continuous">
-		<origin
-			xyz="0.03 0.1895 0.05"
-			rpy="0 0 0" />
-		<parent
-			link="base_link" />
-		<child
-			link="wheel_front_left_link" />
-		<axis
-			xyz="0 1 0" />
-		<limit
-			effort="100"
-			velocity="100" />
-		<safety_controller
-			k_velocity="10" />
-	</joint>
-
-	<link
-		name="wheel_front_right_link">
-		<inertial>
-			<origin
-				xyz="0 -0.02096815 0"
-				rpy="0 0 0" />
-			<mass
-				value="0.4" />
-			<inertia
-				ixx="0"
-				ixy="0"
-				ixz="0"
-				iyy="0"
-				iyz="0"
-				izz="0" />
-		</inertial>
-		<visual>
-			<origin
-				xyz="0 0 0"
-				rpy="0 0 0" />
-			<geometry>
-				<mesh
-					filename="package://ardop_description/meshes/wheel_front_right_link.STL" />
-			</geometry>
-			<material
-				name="dark_blue">
-				<color
-					rgba="0.17 0.24 0.31 1" />
-			</material>
-		</visual>
-		<collision>
-			<origin
-				xyz="0 0 0"
-				rpy="0 0 0" />
-			<geometry>
-				<mesh
-					filename="package://ardop_description/meshes/wheel_front_right_link.STL" />
-			</geometry>
-		</collision>
-	</link>
-
-	<joint
-		name="wheel_front_right_joint"
-		type="continuous">
-		<origin
-			xyz="0.03 -0.1895 0.05"
-			rpy="0 0 0" />
-		<parent
-			link="base_link" />
-		<child
-			link="wheel_front_right_link" />
-		<axis
-			xyz="0 1 0" />
-		<limit
-			effort="100"
-			velocity="100" />
-		<safety_controller
-			k_velocity="10" />
-	</joint>
-
-	<link
-		name="wheel_back_left_link">
-		<inertial>
-			<origin
-				xyz="0 0.02096815 0"
-				rpy="0 0 0" />
-			<mass
-				value="0.4" />
-			<inertia
-				ixx="0"
-				ixy="0"
-				ixz="0"
-				iyy="0"
-				iyz="0"
-				izz="0" />
-		</inertial>
-		<visual>
-			<origin
-				xyz="0 0 0"
-				rpy="0 0 0" />
-			<geometry>
-				<mesh
-					filename="package://ardop_description/meshes/wheel_back_left_link.STL" />
-			</geometry>
-			<material
-				name="dark_blue">
-				<color
-					rgba="0.17 0.24 0.31 1" />
-			</material>
-		</visual>
-		<collision>
-			<origin
-				xyz="0 0 0"
-				rpy="0 0 0" />
-			<geometry>
-				<mesh
-					filename="package://ardop_description/meshes/wheel_back_left_link.STL" />
-			</geometry>
-		</collision>
-	</link>
-
-	<joint
-		name="wheel_back_left_joint"
-		type="continuous">
-		<origin
-			xyz="-0.2 0.1895 0.05"
-			rpy="0 0 0" />
-		<parent
-			link="base_link" />
-		<child
-			link="wheel_back_left_link" />
-		<axis
-			xyz="0 1 0" />
-		<limit
-			effort="100"
-			velocity="100" />
-		<safety_controller
-			k_velocity="10" />
-	</joint>
-
-	<link
-		name="wheel_back_right_link">
-		<inertial>
-			<origin
-				xyz="0 -0.02096815 0"
-				rpy="0 0 0" />
-			<mass
-				value="0.4" />
-			<inertia
-				ixx="0"
-				ixy="0"
-				ixz="0"
-				iyy="0"
-				iyz="0"
-				izz="0" />
-		</inertial>
-		<visual>
-			<origin
-				xyz="0 0 0"
-				rpy="0 0 0" />
-			<geometry>
-				<mesh
-					filename="package://ardop_description/meshes/wheel_back_right_link.STL" />
-			</geometry>
-			<material
-				name="dark_blue">
-				<color
-					rgba="0.17 0.24 0.31 1" />
-			</material>
-		</visual>
-		<collision>
-			<origin
-				xyz="0 0 0"
-				rpy="0 0 0" />
-			<geometry>
-				<mesh
-					filename="package://ardop_description/meshes/wheel_back_right_link.STL" />
-			</geometry>
-		</collision>
-	</link>
-
-	<joint
-		name="wheel_back_right_joint"
-		type="continuous">
-		<origin
-			xyz="-0.2 -0.1895 0.05"
-			rpy="0 0 0" />
-		<parent
-			link="base_link" />
-		<child
-			link="wheel_back_right_link" />
-		<axis
-			xyz="0 1 0" />
-		<limit
-			effort="100"
-			velocity="100" />
-		<safety_controller
-			k_velocity="10" />
-	</joint>
-
-	<link
-		name="shoulder_1_link">
-		<inertial>
-			<origin
-				xyz="0.02786329 -0.03558158 0.00339449" 
-				rpy="0 0 0" />
-			<mass
-				value="0.239718" />
-			<inertia
-				ixx="0.0"
-				ixy="0.0"
-				ixz="0.0"
-				iyy="0.0"
-				iyz="0.0"
-				izz="0.0" />
-		</inertial>
-		<visual>
-			<origin
-				xyz="0 0 0"
-				rpy="0 0 0" />
-			<geometry>
-				<mesh
-					filename="package://ardop_description/meshes/shoulder_1_link.STL" />
-			</geometry>
-			<material
-				name="red">
-				<color
-					rgba="0.91 0.3 0.24 1" />
-			</material>
-		</visual>
-		<collision>
-			<origin
-				xyz="0 0 0"
-				rpy="0 0 0" />
-			<geometry>
-				<mesh
-					filename="package://ardop_description/meshes/shoulder_1_link.STL" />
-			</geometry>
-		</collision>
-	</link>
-
-	<joint
-		name="shoulder_1_joint"
-		type="revolute">
-		<origin
-			xyz="-0.0281 -0.25288 0.504"
-			rpy="0 0 0" />
-		<parent
-			link="base_link" />
-		<child
-			link="shoulder_1_link" />
-		<axis
-			xyz="1 0 0" />
-		<limit
-			effort="300"
-			velocity="3"
-			lower="-1.5708"
-			upper="1.5708" />
-		<dynamics 
-			damping="50" 
-			friction="1" />
-	</joint>
-
-	<link
-		name="upper_1_link">
-		<inertial>
-			<origin
-				xyz="-0.00002823 -0.01138195 -0.05092308"
-				rpy="0 0 0" />
-			<mass
-				value="0.158253" />
-			<inertia
-				ixx="0.0"
-				ixy="0.0"
-				ixz="0.0"
-				iyy="0.0"
-				iyz="0.0"
-				izz="0.0" />
-		</inertial>
-		<visual>
-			<origin
-				xyz="0 0 0"
-				rpy="0 0 0" />
-			<geometry>
-				<mesh
-					filename="package://ardop_description/meshes/upper_1_link.STL" />
-			</geometry>
-			<material
-				name="red">
-				<color
-					rgba="0.91 0.3 0.24 1" />
-			</material>
-		</visual>
-		<collision>
-			<origin
-				xyz="0 0 0"
-				rpy="0 0 0" />
-			<geometry>
-				<mesh
-					filename="package://ardop_description/meshes/upper_1_link.STL" />
-			</geometry>
-		</collision>
-	</link>
-
-	<joint
-		name="upper_1_joint"
-		type="revolute">
-		<origin
-			xyz="0.027024 -0.075963 0.0044026"
-			rpy="0 -0.034323 0" />
-		<parent
-			link="shoulder_1_link" />
-		<child
-			link="upper_1_link" />
-		<axis
-			xyz="0 1 0" />
-		<limit
-			effort="300"
-			velocity="3"
-			lower="-1.5708"
-			upper="1.5708" />
-		<dynamics 
-			damping="50" 
-			friction="1" />
-	</joint>
-
-	<link
-		name="upper_2_link">
-		<inertial>
-			<origin
-				xyz="0.00054343 -0.00051038 -0.01584260"
-				rpy="0 0 0" />
-			<mass
-				value="0.076206" />
-			<inertia
-				ixx="0.0"
-				ixy="0.0"
-				ixz="-0.0"
-				iyy="0.0"
-				iyz="-0.0"
-				izz="0.0" />
-		</inertial>
-		<visual>
-			<origin
-				xyz="0 0 0"
-				rpy="0 0 0" />
-			<geometry>
-				<mesh
-					filename="package://ardop_description/meshes/upper_2_link.STL" />
-			</geometry>
-			<material
-				name="red">
-				<color
-					rgba="0.91 0.3 0.24 1" />
-			</material>
-		</visual>
-		<collision>
-			<origin
-				xyz="0 0 0"
-				rpy="0 0 0" />
-			<geometry>
-				<mesh
-					filename="package://ardop_description/meshes/upper_2_link.STL" />
-			</geometry>
-		</collision>
-	</link>
-
-	<joint
-		name="upper_2_joint"
-		type="revolute">
-		<origin
-			xyz="9.3209E-05 0 -0.10405"
-			rpy="0 0.034323 0" />
-		<parent
-			link="upper_1_link" />
-		<child
-			link="upper_2_link" />
-		<axis
-			xyz="-0.034316 0 0.99941" />
-		<limit
-			effort="300"
-			velocity="3"
-			lower="-1.5708"
-			upper="1.5708" />
-		<dynamics 
-			damping="50" 
-			friction="1" />
-	</joint>
-
-	<link
-		name="lower_1_link">
-		<inertial>
-			<origin
-				xyz="0 -0.03002602 -0.06443806"
-				rpy="0 0 0" />
-			<mass
-				value="0.2241" />
-			<inertia
-				ixx="0.0"
-				ixy="0"
-				ixz="0"
-				iyy="0.000001"
-				iyz="-0.0"
-				izz="0.0" />
-		</inertial>
-		<visual>
-			<origin
-				xyz="0 0 0"
-				rpy="0 0 0" />
-			<geometry>
-				<mesh
-					filename="package://ardop_description/meshes/lower_1_link.STL" />
-			</geometry>
-			<material
-				name="red">
-				<color
-					rgba="0.91 0.3 0.24 1" />
-			</material>
-		</visual>
-		<collision>
-			<origin
-				xyz="0 0 0"
-				rpy="0 0 0" />
-			<geometry>
-				<mesh
-					filename="package://ardop_description/meshes/lower_1_link.STL" />
-			</geometry>
-		</collision>
-	</link>
-
-	<joint
-		name="lower_1_joint"
-		type="revolute">
-		<origin
-			xyz="0.0024117 0.025054 -0.070238"
-			rpy="0 0 0" />
-		<parent
-			link="upper_2_link" />
-		<child
-			link="lower_1_link" />
-		<axis
-			xyz="0 1 0" />
-		<limit
-			effort="300"
-			velocity="3"
-			lower="-1.5708"
-			upper="1.5708" />
-		<dynamics 
-			damping="50" 
-			friction="1" />
-	</joint>
-
-	<link
-		name="lower_2_link">
-		<inertial>
-			<origin
-				xyz="6.05965572437212E-05 -0.000116453399967853 -0.036900896689165"
-				rpy="0 0 0" />
-			<mass
-				value="0.078" />
-			<inertia
-				ixx="0.000001"
-				ixy="-0.0"
-				ixz="0.0"
-				iyy="0.000001"
-				iyz="0.0"
-				izz="0.0" />
-		</inertial>
-		<visual>
-			<origin
-				xyz="0 0 0"
-				rpy="0 0 0" />
-			<geometry>
-				<mesh
-					filename="package://ardop_description/meshes/lower_2_link.STL" />
-			</geometry>
-			<material
-				name="red">
-				<color
-					rgba="0.91 0.3 0.24 1" />
-			</material>
-		</visual>
-		<collision>
-			<origin
-				xyz="0 0 0"
-				rpy="0 0 0" />
-			<geometry>
-				<mesh
-					filename="package://ardop_description/meshes/lower_2_link.STL" />
-			</geometry>
-		</collision>
-	</link>
-
-	<joint
-		name="lower_2_joint"
-		type="revolute">
-		<origin
-			xyz="0 -0.030211 -0.12948"
-			rpy="0 0 0" />
-		<parent
-			link="lower_1_link" />
-		<child
-			link="lower_2_link" />
-		<axis
-			xyz="0 0 1" />
-		<limit
-			effort="300"
-			velocity="3"
-			lower="-1.5708"
-			upper="1.5708" />
-		<dynamics 
-			damping="50" 
-			friction="1" />
-	</joint>
-
-	<link
-		name="lower_3_link">
-		<inertial>
-			<origin
-				xyz="-0.0057507 -0.016448 -0.036911"
-				rpy="0 0 0" />
-			<mass
-				value="0.1" />
-			<inertia
-				ixx="0.0"
-				ixy="0.0"
-				ixz="0.0"
-				iyy="0.0"
-				iyz="-0.0"
-				izz="0.0" />
-		</inertial>
-		<visual>
-			<origin
-				xyz="0 0 0"
-				rpy="0 0 0" />
-			<geometry>
-				<mesh
-					filename="package://ardop_description/meshes/lower_3_link.STL" />
-			</geometry>
-			<material
-				name="blue">
-				<color
-					rgba="0.2 0.6 0.86 1" />
-			</material>
-		</visual>
-		<collision>
-			<origin
-				xyz="0 0 0"
-				rpy="0 0 0" />
-			<geometry>
-				<mesh
-					filename="package://ardop_description/meshes/lower_3_link.STL" />
-			</geometry>
-		</collision>
-	</link>
-
-	<joint
-		name="lower_3_joint"
-		type="revolute">
-		<origin
-			xyz="0.0004864 0.0019612 -0.093575"
-			rpy="0 0 0" />
-		<parent
-			link="lower_2_link" />
-		<child
-			link="lower_3_link" />
-		<axis
-			xyz="0 1 0" />
-		<limit
-			effort="300"
-			velocity="3"
-			lower="0"
-			upper="0.01" />
-		<dynamics 
-			damping="50" 
-			friction="1" />
-	</joint>
-
-	<link
-		name="end_effector_link">
-		<inertial>
-			<origin
-				xyz="-0.01777538 0.01874637 -0.04534066"
-				rpy="0 0 0" />
-			<mass
-				value="0.010303" />
-			<inertia
-				ixx="0.0"
-				ixy="0.0"
-				ixz="-0.0"
-				iyy="0.0"
-				iyz="0.0"
-				izz="0.0" />
-		</inertial>
-		<visual>
-			<origin
-				xyz="0 0 0"
-				rpy="0 0 0" />
-			<geometry>
-				<mesh
-					filename="package://ardop_description/meshes/end_effector_link.STL" />
-			</geometry>
-			<material
-				name="blue">
-				<color
-					rgba="0.2 0.6 0.86 1" />
-			</material>
-		</visual>
-		<collision>
-			<origin
-				xyz="0 0 0"
-				rpy="0 0 0" />
-			<geometry>
-				<mesh
-					filename="package://ardop_description/meshes/end_effector_link.STL" />
-			</geometry>
-		</collision>
-	</link>
-
-	<joint
-		name="end_effector_joint"
-		type="revolute">
-		<origin
-			xyz="0.020065 0.0095794 -0.03"
-			rpy="0 0 0" />
-		<parent
-			link="lower_3_link" />
-		<child
-			link="end_effector_link" />
-		<axis
-			xyz="1 0 0" />
-		<limit
-			effort="300"
-			velocity="3"
-			lower="-0.6"
-			upper="1.5708" />
-		<dynamics 
-			damping="50" 
-			friction="1" />
-	</joint>
-
-	<gazebo 
-		reference="odom">
-	</gazebo>
-
-	<gazebo reference="base_link">
-		<mu1 value="0.7"/>
-		<mu2 value="0.7"/>
-		<kp value="10000000.0"/>
-		<kd value="1.0"/>
-		<material>Gazebo/White</material>
-		<turnGravityOff>false</turnGravityOff>
-	</gazebo>
-
-	<gazebo reference="wheel_front_left_link">
-		<mu1 value="0.7"/>
-		<mu2 value="0.7"/>
-		<kp value="10000000.0"/>
-		<kd value="1.0"/>
-		<fdir1 value="1 0 0"/>
-		<material>Gazebo/Grey</material>
-		<turnGravityOff>false</turnGravityOff>
-	</gazebo>
-
-	<gazebo reference="wheel_front_right_link">
-		<mu1 value="0.7"/>
-		<mu2 value="0.7"/>
-		<kp value="10000000.0"/>
-		<kd value="1.0"/>
-		<fdir1 value="1 0 0"/>
-		<material>Gazebo/Grey</material>
-		<turnGravityOff>false</turnGravityOff>
-	</gazebo>
-
-	<gazebo reference="wheel_back_left_link">
-		<mu1 value="0.7"/>
-		<mu2 value="0.7"/>
-		<kp value="10000000.0"/>
-		<kd value="1.0"/>
-		<fdir1 value="1 0 0"/>
-		<material>Gazebo/Grey</material>
-		<turnGravityOff>false</turnGravityOff>
-	</gazebo>
-
-	<gazebo reference="wheel_back_right_link">
-		<mu1 value="0.7"/>
-		<mu2 value="0.7"/>
-		<kp value="10000000.0"/>
-		<kd value="1.0"/>
-		<fdir1 value="1 0 0"/>
-		<material>Gazebo/Grey</material>
-		<turnGravityOff>false</turnGravityOff>
-	</gazebo>
-
-	<gazebo>
-		<plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
-			<robotNamespace>/ardop</robotNamespace>
-			<robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
-		</plugin>
-	</gazebo>
-
-	<transmission name="wheel_front_left_joint_trans">
-		<type>transmission_interface/SimpleTransmission</type>
-		<joint name="wheel_front_left_joint">
-			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-		</joint>
-		<actuator name="wheel_front_left_motor">
-			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-			<mechanicalReduction>1</mechanicalReduction>
-		</actuator>
-	</transmission>
-
-	<transmission name="wheel_front_right_joint_trans">
-		<type>transmission_interface/SimpleTransmission</type>
-		<joint name="wheel_front_right_joint">
-			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-		</joint>
-		<actuator name="wheel_front_right_motor">
-			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-			<mechanicalReduction>1</mechanicalReduction>
-		</actuator>
-	</transmission>
-
-	<transmission name="wheel_back_left_joint_trans">
-		<type>transmission_interface/SimpleTransmission</type>
-		<joint name="wheel_back_left_joint">
-			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-		</joint>
-		<actuator name="wheel_back_left_motor">
-			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-			<mechanicalReduction>1</mechanicalReduction>
-		</actuator>
-	</transmission>
-
-	<transmission name="wheel_back_right_joint_trans">
-		<type>transmission_interface/SimpleTransmission</type>
-		<joint name="wheel_back_right_joint">
-			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-		</joint>
-		<actuator name="wheel_back_right_motor">
-			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-			<mechanicalReduction>1</mechanicalReduction>
-		</actuator>
-	</transmission>
-
-	<transmission name="shoulder_1_joint_trans">
-		<type>transmission_interface/SimpleTransmission</type>
-		<joint name="shoulder_1_joint">
-			<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
-		</joint>
-		<actuator name="shoulder_1_servo">
-			<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
-			<mechanicalReduction>1</mechanicalReduction>
-		</actuator>
-	</transmission>
-
-	<transmission name="upper_1_joint_trans">
-		<type>transmission_interface/SimpleTransmission</type>
-		<joint name="upper_1_joint">
-			<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
-		</joint>
-		<actuator name="upper_1_servo">
-			<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
-			<mechanicalReduction>1</mechanicalReduction>
-		</actuator>
-	</transmission>
-
-	<transmission name="upper_2_joint_trans">
-		<type>transmission_interface/SimpleTransmission</type>
-		<joint name="upper_2_joint">
-			<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
-		</joint>
-		<actuator name="upper_2_servo">
-			<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
-			<mechanicalReduction>1</mechanicalReduction>
-		</actuator>
-	</transmission>
-
-	<transmission name="lower_1_joint_trans">
-		<type>transmission_interface/SimpleTransmission</type>
-		<joint name="lower_1_joint">
-			<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
-		</joint>
-		<actuator name="lower_1_servo">
-			<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
-			<mechanicalReduction>1</mechanicalReduction>
-		</actuator>
-	</transmission>
-
-	<transmission name="lower_2_joint_trans">
-		<type>transmission_interface/SimpleTransmission</type>
-		<joint name="lower_2_joint">
-			<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
-		</joint>
-		<actuator name="lower_2_servo">
-			<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
-			<mechanicalReduction>1</mechanicalReduction>
-		</actuator>
-	</transmission>
-
-	<transmission name="lower_3_joint_trans">
-		<type>transmission_interface/SimpleTransmission</type>
-		<joint name="lower_3_joint">
-			<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
-		</joint>
-		<actuator name="lower_3_servo">
-			<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
-			<mechanicalReduction>1</mechanicalReduction>
-		</actuator>
-	</transmission>
-
-	<transmission name="end_effector_joint_trans">
-		<type>transmission_interface/SimpleTransmission</type>
-		<joint name="end_effector_joint">
-			<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
-		</joint>
-		<actuator name="end_effector_servo">
-			<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
-			<mechanicalReduction>1</mechanicalReduction>
-		</actuator>
-	</transmission>
-
-	<gazebo reference="shoulder_1_link">
-		<mu1 value="0.7"/>
-		<mu2 value="0.7"/>
-		<kp value="10000000.0"/>
-		<kd value="1.0"/>
-		<material>Gazebo/Red</material>
-		<turnGravityOff>false</turnGravityOff>
-	</gazebo>
-
-	<gazebo reference="upper_1_link">
-		<mu1 value="0.7"/>
-		<mu2 value="0.7"/>
-		<kp value="10000000.0"/>
-		<kd value="1.0"/>
-		<material>Gazebo/Red</material>
-		<turnGravityOff>false</turnGravityOff>
-	</gazebo>
-
-	<gazebo reference="upper_2_link">
-		<mu1 value="0.7"/>
-		<mu2 value="0.7"/>
-		<kp value="10000000.0"/>
-		<kd value="1.0"/>
-		<material>Gazebo/Red</material>
-		<turnGravityOff>false</turnGravityOff>
-	</gazebo>
-
-	<gazebo reference="lower_1_link">
-		<mu1 value="0.7"/>
-		<mu2 value="0.7"/>
-		<kp value="10000000.0"/>
-		<kd value="1.0"/>
-		<material>Gazebo/Red</material>
-		<turnGravityOff>false</turnGravityOff>
-	</gazebo>
-
-	<gazebo reference="lower_2_link">
-		<mu1 value="0.7"/>
-		<mu2 value="0.7"/>
-		<kp value="10000000.0"/>
-		<kd value="1.0"/>
-		<material>Gazebo/Red</material>
-		<turnGravityOff>false</turnGravityOff>
-	</gazebo>
-
-	<gazebo reference="lower_3_link">
-		<mu1 value="0.7"/>
-		<mu2 value="0.7"/>
-		<kp value="10000000.0"/>
-		<kd value="1.0"/>
-		<material>Gazebo/Blue</material>
-		<turnGravityOff>false</turnGravityOff>
-	</gazebo>
-
-	<gazebo reference="end_effector_link">
-		<mu1 value="0.7"/>
-		<mu2 value="0.7"/>
-		<kp value="10000000.0"/>
-		<kd value="1.0"/>
-		<material>Gazebo/Blue</material>
-		<turnGravityOff>false</turnGravityOff>
-	</gazebo>
-	
+  name="ardop_description">
+  <link
+    name="chassis_link">
+    <inertial>
+      <origin
+        xyz="-0.056691 -0.00059544 0.1313"
+        rpy="0 0 0" />
+      <mass
+        value="13.474" />
+      <inertia
+        ixx="0.027514"
+        ixy="0.00043877"
+        ixz="-0.0039331"
+        iyy="0.026167"
+        iyz="0.0030733"
+        izz="0.0025587" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ardop_description/meshes/chassis_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ardop_description/meshes/chassis_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="wheel_front_left_link">
+    <inertial>
+      <origin
+        xyz="-8.8818E-16 0.010968 3.4001E-15"
+        rpy="0 0 0" />
+      <mass
+        value="0.32836" />
+      <inertia
+        ixx="0"
+        ixy="0"
+        ixz="0"
+        iyy="0"
+        iyz="0"
+        izz="0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ardop_description/meshes/wheel_front_left_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ardop_description/meshes/wheel_front_left_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wheel_front_left_joint"
+    type="continuous">
+    <origin
+      xyz="0.03 0.1995 0.05"
+      rpy="0 0 0" />
+    <parent
+      link="chassis_link" />
+    <child
+      link="wheel_front_left_link" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="wheel_back_left_link">
+    <inertial>
+      <origin
+        xyz="-9.7145E-16 0.010968 4.3854E-15"
+        rpy="0 0 0" />
+      <mass
+        value="0.32836" />
+      <inertia
+        ixx="0"
+        ixy="0"
+        ixz="0"
+        iyy="0"
+        iyz="0"
+        izz="0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ardop_description/meshes/wheel_back_left_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ardop_description/meshes/wheel_back_left_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wheel_back_left_joint"
+    type="continuous">
+    <origin
+      xyz="-0.2 0.1995 0.05"
+      rpy="0 0 0" />
+    <parent
+      link="chassis_link" />
+    <child
+      link="wheel_back_left_link" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="wheel_back_right_link">
+    <inertial>
+      <origin
+        xyz="1.7486E-15 -0.010968 -3.7331E-15"
+        rpy="0 0 0" />
+      <mass
+        value="0.32836" />
+      <inertia
+        ixx="0"
+        ixy="0"
+        ixz="0"
+        iyy="0"
+        iyz="0"
+        izz="0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ardop_description/meshes/wheel_back_right_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ardop_description/meshes/wheel_back_right_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wheel_back_right_joint"
+    type="continuous">
+    <origin
+      xyz="-0.2 -0.1995 0.05"
+      rpy="0 0 0" />
+    <parent
+      link="chassis_link" />
+    <child
+      link="wheel_back_right_link" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="wheel_front_right_link">
+    <inertial>
+      <origin
+        xyz="1.8319E-15 -0.010968 -7.1193E-15"
+        rpy="0 0 0" />
+      <mass
+        value="0.32836" />
+      <inertia
+        ixx="0"
+        ixy="0"
+        ixz="0"
+        iyy="0"
+        iyz="0"
+        izz="0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ardop_description/meshes/wheel_front_right_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ardop_description/meshes/wheel_front_right_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wheel_front_right_joint"
+    type="continuous">
+    <origin
+      xyz="0.03 -0.1995 0.05"
+      rpy="0 0 0" />
+    <parent
+      link="chassis_link" />
+    <child
+      link="wheel_front_right_link" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="shoulder_1_link">
+    <inertial>
+      <origin
+        xyz="0.0034325 -0.035582 -0.027791"
+        rpy="0 0 0" />
+      <mass
+        value="0.38511" />
+      <inertia
+        ixx="8.9953E-05"
+        ixy="2.5717E-07"
+        ixz="-1.7967E-07"
+        iyy="2.8799E-06"
+        iyz="-4.1028E-07"
+        izz="8.7135E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ardop_description/meshes/shoulder_1_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ardop_description/meshes/shoulder_1_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="shoulder_1_joint"
+    type="revolute">
+    <origin
+      xyz="-0.002 -0.25288 0.5401"
+      rpy="0 0 0" />
+    <parent
+      link="chassis_link" />
+    <child
+      link="shoulder_1_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="upper_1_link">
+    <inertial>
+      <origin
+        xyz="0.00050398 -0.080501 0.0070176"
+        rpy="0 0 0" />
+      <mass
+        value="0.65289" />
+      <inertia
+        ixx="0.00082361"
+        ixy="-6.7529E-06"
+        ixz="-1.167E-06"
+        iyy="2.3965E-05"
+        iyz="-0.00013711"
+        izz="0.00079976" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ardop_description/meshes/upper_1_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ardop_description/meshes/upper_1_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="upper_1_joint"
+    type="revolute">
+    <origin
+      xyz="0.0027 -0.075963 -0.026697"
+      rpy="1.5708 0 0" />
+    <parent
+      link="shoulder_1_link" />
+    <child
+      link="upper_1_link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="lower_1_link">
+    <inertial>
+      <origin
+        xyz="0.064437 2.5671E-07 -0.030026"
+        rpy="0 0 0" />
+      <mass
+        value="0.51863" />
+      <inertia
+        ixx="3.3368E-06"
+        ixy="-2.2182E-10"
+        ixz="1.762E-05"
+        iyy="0.00014342"
+        iyz="-4.8418E-11"
+        izz="0.00014008" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ardop_description/meshes/lower_1_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ardop_description/meshes/lower_1_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="lower_1_joint"
+    type="revolute">
+    <origin
+      xyz="0.00017493 -0.17353 -0.025178"
+      rpy="3.1416 0 -1.5708" />
+    <parent
+      link="upper_1_link" />
+    <child
+      link="lower_1_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="lower_2_link">
+    <inertial>
+      <origin
+        xyz="0.00040034 -0.00018685 0.04614"
+        rpy="0 0 0" />
+      <mass
+        value="0.50115" />
+      <inertia
+        ixx="0.00030306"
+        ixy="3.6117E-07"
+        ixz="-1.1073E-05"
+        iyy="0.00030314"
+        iyz="9.8339E-06"
+        izz="7.2783E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ardop_description/meshes/lower_2_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ardop_description/meshes/lower_2_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="lower_2_joint"
+    type="revolute">
+    <origin
+      xyz="0.12948 0 -0.030211"
+      rpy="-1.5708 0 -1.5708" />
+    <parent
+      link="lower_1_link" />
+    <child
+      link="lower_2_link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="ee_pitch_link">
+    <inertial>
+      <origin
+        xyz="-0.0045175 -0.0046268 0.014845"
+        rpy="0 0 0" />
+      <mass
+        value="0.039125" />
+      <inertia
+        ixx="1.1203E-06"
+        ixy="-1.5536E-07"
+        ixz="3.809E-07"
+        iyy="1.1129E-06"
+        iyz="3.9012E-07"
+        izz="3.108E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ardop_description/meshes/ee_pitch_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ardop_description/meshes/ee_pitch_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="ee_pitch_joint"
+    type="revolute">
+    <origin
+      xyz="0.011877 -0.028151 0.11857"
+      rpy="-1.5708 0 -3.1416" />
+    <parent
+      link="lower_2_link" />
+    <child
+      link="ee_pitch_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="ee_roll_link">
+    <inertial>
+      <origin
+        xyz="-0.0047287 0.054125 0.037222"
+        rpy="0 0 0" />
+      <mass
+        value="0.15479" />
+      <inertia
+        ixx="4.2486E-05"
+        ixy="1.9075E-06"
+        ixz="2.7272E-06"
+        iyy="2.0992E-05"
+        iyz="-1.7809E-05"
+        izz="2.2282E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ardop_description/meshes/ee_roll_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ardop_description/meshes/ee_roll_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="ee_roll_joint"
+    type="revolute">
+    <origin
+      xyz="-0.0311 -0.014379 0.017"
+      rpy="-1.5708 0 1.5708" />
+    <parent
+      link="ee_pitch_link" />
+    <child
+      link="ee_roll_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="end_effector_link">
+    <inertial>
+      <origin
+        xyz="0.018746 -0.045341 -0.017775"
+        rpy="0 0 0" />
+      <mass
+        value="0.050107" />
+      <inertia
+        ixx="1.3948E-06"
+        ixy="4.9399E-07"
+        ixz="2.0212E-07"
+        iyy="4.0427E-07"
+        iyz="-4.8886E-07"
+        izz="1.399E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ardop_description/meshes/end_effector_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ardop_description/meshes/end_effector_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="end_effector_joint"
+    type="revolute">
+    <origin
+      xyz="0.02055 0.030611 0.034"
+      rpy="-1.5708 0 -1.5708" />
+    <parent
+      link="ee_roll_link" />
+    <child
+      link="end_effector_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      effort="0"
+      velocity="0" />
+  </joint>
 </robot>
