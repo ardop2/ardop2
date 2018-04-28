@@ -1,0 +1,42 @@
+ardop:
+  
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50
+
+  arm_controller:
+    type: position_controllers/JointTrajectoryController
+    joints:
+      - shoulder_1_joint
+      - upper_1_joint
+      - lower_1_joint
+      - lower_2_joint
+      - ee_pitch_joint
+      - ee_roll_joint
+    gains:
+      shoulder_1_joint: {p: 100.0, i: 0.01, d: 10.0}
+      upper_1_joint: {p: 100.0, i: 0.01, d: 10.0}
+      lower_1_joint: {p: 100.0, i: 0.01, d: 10.0}
+      lower_2_joint: {p: 100.0, i: 0.01, d: 10.0}
+      ee_pitch_joint: {p: 100.0, i: 0.01, d: 10.0}
+      ee_roll_joint: {p: 100.0, i: 0.01, d: 10.0}
+
+  gripper_controller:
+    type: position_controllers/JointTrajectoryController
+    joints: 
+      - end_effector_joint
+    gains:
+      end_effector_joint: {p: 100.0, i: 0.01, d: 10.0}
+
+  chassis_controller:
+    type: effort_controllers/JointTrajectoryController
+    joints: 
+      - wheel_front_left_joint
+      - wheel_front_right_joint
+      - wheel_back_left_joint
+      - wheel_back_right_joint   
+    gains:
+      wheel_front_left_joint: {p: 100.0, i: 0.01, d: 10.0}
+      wheel_front_right_joint: {p: 100.0, i: 0.01, d: 10.0}
+      wheel_back_left_joint: {p: 100.0, i: 0.01, d: 10.0}
+      wheel_back_right_joint: {p: 100.0, i: 0.01, d: 10.0}

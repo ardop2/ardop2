@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+
+	<include
+		file="$(find gazebo_ros)/launch/empty_world.launch" >
+		<arg name="verbose" value="true" />
+	</include>
+
+	<param 
+		name="robot_description" 
+		textfile="$(find ardop_description)/urdf/ardop_description.urdf" />
+
+	<node
+		name="spawn_model"
+		pkg="gazebo_ros"
+		type="spawn_model"
+		respawn="false"
+		args="-file $(find ardop_description)/urdf/ardop_description.urdf -urdf -model ardop_description"
+		output="screen" />
+
+	<rosparam
+		file="$(find ardop_description)/config/position_controllers.yaml"
+		command="load" />
+
+	<node
+		name="controller_spawner"
+		pkg="controller_manager"
+		type="spawner"
+		respawn="false"
+		ns="/ardop"
+		args="shoulder_1_joint_position_controller upper_1_joint_position_controller  lower_1_joint_position_controller lower_2_joint_position_controller ee_pitch_joint_position_controller ee_roll_joint_position_controller end_effector_joint_position_controller wheel_front_left_joint_position_controller wheel_front_right_joint_position_controller wheel_back_left_joint_position_controller wheel_back_right_joint_position_controller joint_state_controller" />
+
+	<node
+		name="robot_state_publisher"
+		pkg="robot_state_publisher"
+		type="robot_state_publisher"
+		respawn="false"
+		output="screen">
+
+		<remap
+			from="/joint_states"
+			to="/ardop/joint_states" />
+	</node>
+
+</launch>

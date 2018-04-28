@@ -13,7 +13,7 @@
 	<rosparam command="load" file="$(find ardop_moveit_config)/config/joint_names.yaml"/>
 
 	<!-- Launch Gazebo simulation -->
-	<include file="$(find ardop_moveit_config)/launch/gazebo.launch"/>
+	<!--include file="$(find ardop_moveit_config)/launch/gazebo.launch"/-->
 
 	<!-- If needed, broadcast static tf for robot root -->
 	<node 
