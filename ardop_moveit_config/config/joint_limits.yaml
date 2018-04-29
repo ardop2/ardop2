@@ -2,6 +2,16 @@
 # Specific joint properties can be changed with the keys [max_position, min_position, max_velocity, max_acceleration]
 # Joint limits can be turned off with [has_velocity_limits, has_acceleration_limits]
 joint_limits:
+  ee_pitch_joint:
+    has_velocity_limits: true
+    max_velocity: 3
+    has_acceleration_limits: false
+    max_acceleration: 0
+  ee_roll_joint:
+    has_velocity_limits: true
+    max_velocity: 3
+    has_acceleration_limits: false
+    max_acceleration: 0
   end_effector_joint:
     has_velocity_limits: true
     max_velocity: 3
@@ -17,22 +27,12 @@ joint_limits:
     max_velocity: 3
     has_acceleration_limits: false
     max_acceleration: 0
-  lower_3_joint:
-    has_velocity_limits: true
-    max_velocity: 3
-    has_acceleration_limits: false
-    max_acceleration: 0
   shoulder_1_joint:
     has_velocity_limits: true
     max_velocity: 3
     has_acceleration_limits: false
     max_acceleration: 0
   upper_1_joint:
-    has_velocity_limits: true
-    max_velocity: 3
-    has_acceleration_limits: false
-    max_acceleration: 0
-  upper_2_joint:
     has_velocity_limits: true
     max_velocity: 3
     has_acceleration_limits: false

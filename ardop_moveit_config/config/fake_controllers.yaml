@@ -3,10 +3,10 @@ controller_list:
     joints:
       - shoulder_1_joint
       - upper_1_joint
-      - upper_2_joint
       - lower_1_joint
       - lower_2_joint
-      - lower_3_joint
+      - ee_pitch_joint
+      - ee_roll_joint
   - name: fake_gripper_controller
     joints:
       - end_effector_joint

@@ -37,49 +37,38 @@ print group.get_current_pose()
 # print "\nRobot State:"
 # print robot.get_current_state()
 
-group.set_goal_tolerance(200)
-group.set_planning_time(40)
-group.set_num_planning_attempts(60)
-group.allow_replanning(True)
+group.set_goal_tolerance(0.02)
+group.set_planning_time(5)
+group.set_num_planning_attempts(10)
 
 if IK:
-	print "\nGenerating IK..."
+	print "\nGenerating Inverse Kinematics..."
 	
 	pose_target = geometry_msgs.msg.Pose()
-	# pose_target = group.get_current_pose()
-
-	# Set header
-	# pose_target.header.frame_id = "/world"
 
 	# Set position
-	pose_target.position.x = -0.174257
-	pose_target.position.y = -0.379971
-	pose_target.position.z = 0.344139
+	pose_target.position.x = 0.111693
+	pose_target.position.y = -0.017444
+	pose_target.position.z = 0.166855
 
 	# Set orientation
 	# pose_target.orientation.x = 0.778503111668
 	# pose_target.orientation.y = -0.601031377053
 	# pose_target.orientation.z = 0.179308816961
 	# pose_target.orientation.w = 0.0232924253989
-
-	random_pose_target = group.get_random_pose()
-
-	# random_pose_target.pose.position.x = -0.342596945962
-	# random_pose_target.pose.position.y = -0.350590067998
-	# random_pose_target.pose.position.z = 0.684848289954
 	
-	xyz = [random_pose_target.pose.position.x,
-		   random_pose_target.pose.position.y,
-		   random_pose_target.pose.position.z]
-	print "\nRandom XYZ:",  xyz
-
-	if RANDOM_POSE:		
+	# Set position target
+	xyz = [pose_target.position.x, pose_target.position.y, pose_target.position.z]
+	
+	if RANDOM_POSE:
+		random_pose_target = group.get_random_pose()
 		print "\nRandom Pose:\n", random_pose_target
 		group.set_pose_target(random_pose_target, end_effector_link)
 	else:
 		print "\nSet Pose:\n", pose_target
-		group.set_pose_target(pose_target, end_effector_link)
-		# group.set_position_target(xyz, end_effector_link)
+		# group.set_pose_target(pose_target, end_effector_link)
+		print "\nSet Position XYZ:", xyz
+		group.set_position_target(xyz, end_effector_link)
 	
 	plan = group.plan()
 

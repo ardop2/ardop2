@@ -9,17 +9,17 @@ ardop:
     joints:
       - shoulder_1_joint
       - upper_1_joint
-      - upper_2_joint
       - lower_1_joint
       - lower_2_joint
-      - lower_3_joint
+      - ee_pitch_joint
+      - ee_roll_joint
     gains:
       shoulder_1_joint: {p: 100.0, i: 0.01, d: 10.0}
       upper_1_joint: {p: 100.0, i: 0.01, d: 10.0}
-      upper_2_joint: {p: 100.0, i: 0.01, d: 10.0}
       lower_1_joint: {p: 100.0, i: 0.01, d: 10.0}
       lower_2_joint: {p: 100.0, i: 0.01, d: 10.0}
-      lower_3_joint: {p: 100.0, i: 0.01, d: 10.0}
+      ee_pitch_joint: {p: 100.0, i: 0.01, d: 10.0}
+      ee_roll_joint: {p: 100.0, i: 0.01, d: 10.0}
 
   gripper_controller:
     type: position_controllers/JointTrajectoryController

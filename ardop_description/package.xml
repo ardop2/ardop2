@@ -1,11 +1,11 @@
 <package>
-	
+
 	<name>ardop_description</name>
-	<version>1.0.0</version>
-	
+	<version>2.0.0</version>
+
 	<description>
 		<p>URDF Description package for ardop_description</p>
-		<p>This package contains configuration data, 3D models and launch files for ardop_description robot</p>
+		<p>This package contains configuration data, 3D models and launch files for ARDOP 2.0 robot</p>
 	</description>
 
 	<author>Heethesh Vhavle</author>
