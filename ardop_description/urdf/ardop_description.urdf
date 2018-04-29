@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <robot
 	name="ardop">
+
 	<link name="odom" />
 
 	<link
 		name="chassis_link">
 		<inertial>
 			<origin
-				xyz="-0.056691 -0.00059544 0.1313"
+				xyz="-0.05669211 -0.00059544 0.13127776"
 				rpy="0 0 0" />
 			<mass
 				value="6" />
@@ -300,14 +301,14 @@
 				xyz="0.0034325 -0.035582 -0.027791"
 				rpy="0 0 0" />
 			<mass
-				value="0.239718" />
+				value="0.1" />
 			<inertia
-				ixx="0.0"
-				ixy="-0.0"
-				ixz="-0.0"
-				iyy="0.0"
-				iyz="0.0"
-				izz="0.0" />
+				ixx="0"
+				ixy="0"
+				ixz="0"
+				iyy="0"
+				iyz="0"
+				izz="0" />
 		</inertial>
 		<visual>
 			<origin
@@ -363,14 +364,14 @@
 				xyz="0.00050398 -0.080501 0.0070176"
 				rpy="0 0 0" />
 			<mass
-				value="0.169459" />
+				value="0.1" />
 			<inertia
-				ixx="0.000002"
-				ixy="0.0"
-				ixz="0.0"
-				iyy="0.000001"
-				iyz="-0.0"
-				izz="0.000002" />
+				ixx="0"
+				ixy="0"
+				ixz="0"
+				iyy="0"
+				iyz="0"
+				izz="0" />
 		</inertial>
 		<visual>
 			<origin
@@ -426,14 +427,14 @@
 				xyz="0.064437 2.5671E-07 -0.030026"
 				rpy="0 0 0" />
 			<mass
-				value="0.2241" />
+				value="0.1" />
 			<inertia
-				ixx="0.0"
-				ixy="0.0"
-				ixz="0.0"
-				iyy="0.000001"
-				iyz="-0.0"
-				izz="0.000001" />
+				ixx="0"
+				ixy="0"
+				ixz="0"
+				iyy="0"
+				iyz="0"
+				izz="0" />
 		</inertial>
 		<visual>
 			<origin
@@ -489,14 +490,14 @@
 				xyz="0.00040034 -0.00018685 0.04614"
 				rpy="0 0 0" />
 			<mass
-				value="0.143" />
+				value="0.1" />
 			<inertia
-				ixx="0.000001"
-				ixy="0.0"
-				ixz="-0.0"
-				iyy="0.000001"
-				iyz="0.0"
-				izz="0.0" />
+				ixx="0"
+				ixy="0"
+				ixz="0"
+				iyy="0"
+				iyz="0"
+				izz="0" />
 		</inertial>
 		<visual>
 			<origin
@@ -552,14 +553,14 @@
 				xyz="-0.0045175 -0.0046268 0.014845"
 				rpy="0 0 0" />
 			<mass
-				value="0.07" />
+				value="0.1" />
 			<inertia
-				ixx="0.0"
-				ixy="-0.0"
-				ixz="0.0"
-				iyy="0.0"
-				iyz="0.0"
-				izz="0.0" />
+				ixx="0"
+				ixy="0"
+				ixz="0"
+				iyy="0"
+				iyz="0"
+				izz="0" />
 		</inertial>
 		<visual>
 			<origin
@@ -615,14 +616,14 @@
 				xyz="-0.0047287 0.054125 0.037222"
 				rpy="0 0 0" />
 			<mass
-				value="0.11" />
+				value="0.1" />
 			<inertia
-				ixx="0.0"
-				ixy="0.0"
-				ixz="0.0"
-				iyy="0.0"
-				iyz="-0.0"
-				izz="0.0" />
+				ixx="0"
+				ixy="0"
+				ixz="0"
+				iyy="0"
+				iyz="0"
+				izz="0" />
 		</inertial>
 		<visual>
 			<origin
@@ -678,14 +679,14 @@
 				xyz="0.018746 -0.045341 -0.017775"
 				rpy="0 0 0" />
 			<mass
-				value="0.010303" />
+				value="0.1" />
 			<inertia
-				ixx="0.0"
-				ixy="0.0"
-				ixz="0.0"
-				iyy="0.0"
-				iyz="-0.0"
-				izz="0.0" />
+				ixx="0"
+				ixy="0"
+				ixz="0"
+				iyy="0"
+				iyz="0"
+				izz="0" />
 		</inertial>
 		<visual>
 			<origin
@@ -739,51 +740,71 @@
 	</gazebo>
 
 	<gazebo reference="chassis_link">
-		<mu1 value="0.7"/>
-		<mu2 value="0.7"/>
-		<kp value="100.0"/>
-		<kd value="1.0"/>
 		<material>Gazebo/White</material>
 		<turnGravityOff>false</turnGravityOff>
 	</gazebo>
 
 	<gazebo reference="wheel_front_left_link">
-		<mu1 value="0.7"/>
-		<mu2 value="0.7"/>
-		<kp value="100.0"/>
-		<kd value="1.0"/>
-		<fdir1 value="1 0 0"/>
+		<!--fdir1 value="1 0 0"/-->
 		<material>Gazebo/Grey</material>
 		<turnGravityOff>false</turnGravityOff>
 	</gazebo>
 
 	<gazebo reference="wheel_front_right_link">
-		<mu1 value="0.7"/>
-		<mu2 value="0.7"/>
-		<kp value="100.0"/>
-		<kd value="1.0"/>
-		<fdir1 value="1 0 0"/>
+		<!--fdir1 value="1 0 0"/-->
 		<material>Gazebo/Grey</material>
 		<turnGravityOff>false</turnGravityOff>
 	</gazebo>
 
 	<gazebo reference="wheel_back_left_link">
-		<mu1 value="0.7"/>
-		<mu2 value="0.7"/>
-		<kp value="100.0"/>
-		<kd value="1.0"/>
-		<fdir1 value="1 0 0"/>
+		<!--fdir1 value="1 0 0"/-->
 		<material>Gazebo/Grey</material>
 		<turnGravityOff>false</turnGravityOff>
 	</gazebo>
 
 	<gazebo reference="wheel_back_right_link">
-		<mu1 value="0.7"/>
-		<mu2 value="0.7"/>
-		<kp value="100.0"/>
-		<kd value="1.0"/>
-		<fdir1 value="1 0 0"/>
+		<!--fdir1 value="1 0 0"/-->
 		<material>Gazebo/Grey</material>
+		<turnGravityOff>false</turnGravityOff>
+	</gazebo>
+
+	<gazebo reference="shoulder_1_link">
+		<material>Gazebo/Red</material>
+		<turnGravityOff>false</turnGravityOff>
+	</gazebo>
+
+	<gazebo reference="upper_1_link">
+		<material>Gazebo/Red</material>
+		<turnGravityOff>false</turnGravityOff>
+	</gazebo>
+
+	<gazebo reference="upper_2_link">
+		<material>Gazebo/Red</material>
+		<turnGravityOff>false</turnGravityOff>
+	</gazebo>
+
+	<gazebo reference="lower_1_link">
+		<material>Gazebo/Red</material>
+		<turnGravityOff>false</turnGravityOff>
+	</gazebo>
+
+	<gazebo reference="lower_2_link">
+		<material>Gazebo/Red</material>
+		<turnGravityOff>false</turnGravityOff>
+	</gazebo>
+
+	<gazebo reference="ee_pitch_link">
+		<material>Gazebo/Red</material>
+		<turnGravityOff>false</turnGravityOff>
+	</gazebo>
+
+	<gazebo reference="ee_roll_link">
+		<material>Gazebo/Blue</material>
+		<turnGravityOff>false</turnGravityOff>
+	</gazebo>
+
+	<gazebo reference="end_effector_link">
+		<material>Gazebo/Blue</material>
 		<turnGravityOff>false</turnGravityOff>
 	</gazebo>
 
@@ -914,68 +935,5 @@
 			<mechanicalReduction>1</mechanicalReduction>
 		</actuator>
 	</transmission>
-
-	<gazebo reference="shoulder_1_link">
-		<mu1 value="0.7"/>
-		<mu2 value="0.7"/>
-		<kp value="100.0"/>
-		<kd value="1.0"/>
-		<material>Gazebo/Red</material>
-		<turnGravityOff>false</turnGravityOff>
-	</gazebo>
-
-	<gazebo reference="upper_1_link">
-		<mu1 value="0.7"/>
-		<mu2 value="0.7"/>
-		<kp value="100.0"/>
-		<kd value="1.0"/>
-		<material>Gazebo/Red</material>
-		<turnGravityOff>false</turnGravityOff>
-	</gazebo>
-
-	<gazebo reference="lower_1_link">
-		<mu1 value="0.7"/>
-		<mu2 value="0.7"/>
-		<kp value="100.0"/>
-		<kd value="1.0"/>
-		<material>Gazebo/Red</material>
-		<turnGravityOff>false</turnGravityOff>
-	</gazebo>
-
-	<gazebo reference="lower_2_link">
-		<mu1 value="0.7"/>
-		<mu2 value="0.7"/>
-		<kp value="100.0"/>
-		<kd value="1.0"/>
-		<material>Gazebo/Red</material>
-		<turnGravityOff>false</turnGravityOff>
-	</gazebo>
-
-	<gazebo reference="ee_pitch_link">
-		<mu1 value="0.7"/>
-		<mu2 value="0.7"/>
-		<kp value="100.0"/>
-		<kd value="1.0"/>
-		<material>Gazebo/Red</material>
-		<turnGravityOff>false</turnGravityOff>
-	</gazebo>
-
-	<gazebo reference="ee_roll_link">
-		<mu1 value="0.7"/>
-		<mu2 value="0.7"/>
-		<kp value="100.0"/>
-		<kd value="1.0"/>
-		<material>Gazebo/Blue</material>
-		<turnGravityOff>false</turnGravityOff>
-	</gazebo>
-
-	<gazebo reference="end_effector_link">
-		<mu1 value="0.7"/>
-		<mu2 value="0.7"/>
-		<kp value="100.0"/>
-		<kd value="1.0"/>
-		<material>Gazebo/Blue</material>
-		<turnGravityOff>false</turnGravityOff>
-	</gazebo>
 
 </robot>

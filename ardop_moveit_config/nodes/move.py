@@ -40,7 +40,6 @@ print group.get_current_pose()
 group.set_goal_tolerance(0.02)
 group.set_planning_time(5)
 group.set_num_planning_attempts(10)
-# group.allow_replanning(True)
 
 if IK:
 	print "\nGenerating Inverse Kinematics..."
@@ -48,9 +47,9 @@ if IK:
 	pose_target = geometry_msgs.msg.Pose()
 
 	# Set position
-	pose_target.position.x = 0.15
-	pose_target.position.y = 0
-	pose_target.position.z = 0.2
+	pose_target.position.x = 0.111693
+	pose_target.position.y = -0.017444
+	pose_target.position.z = 0.166855
 
 	# Set orientation
 	# pose_target.orientation.x = 0.778503111668
