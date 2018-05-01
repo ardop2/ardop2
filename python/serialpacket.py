@@ -10,6 +10,7 @@ class SerialPacket:
 
         self.data = []
         self.packet = []
+        self.frameID = None
         self.checksumEnable = False
         self.packetHead = [chr(200)]
         self.packetTail = [chr(201)]
@@ -31,19 +32,28 @@ class SerialPacket:
     def generatePacket(self):
 
         self.packet = self.packetHead
+        
         for i in self.data:
-            if type(i) is int: self.packet.append(chr(i))
+            if type(i) is int:
+                self.packet.append(chr(i))
             elif type(i) is str:
                 for j in i: self.packet.append(j)
-            else: print '\nError generating packet'
+            else: 
+                print '\nError generating packet'
+                return False
         
-        if self.checksumEnable: self.packet += [self.getChecksum(self.packet[1:])]
+        if self.checksumEnable: 
+            self.packet += [self.getChecksum(self.packet[1:])]
+        
         self.packet += self.packetTail
+        return True
         
     
     def sendPacket(self):
 
-        self.generatePacket()
+        if not self.generatePacket():
+            return False
+
         print '\nData:', self.data
         print 'Packet:', [i.encode('hex') for i in self.packet], '\n'
         
@@ -51,6 +61,7 @@ class SerialPacket:
             print 'Sending Byte:', ord(i)
             self.ser.write(i)
             time.sleep(0.2)
+        return True
 
 
     def echo(self):
