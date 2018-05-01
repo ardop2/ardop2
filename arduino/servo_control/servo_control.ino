@@ -68,7 +68,8 @@ void setServoAngle(servo_ &servo, uint8_t angle)
 		for (uint8_t i = servo.last_angle; i <= angle; i++)
 		{
 			uint16_t pulseLen = map(i, 0, 180, servo.pulse_min, servo.pulse_max);
-			if (i % 5 == 0) {
+			if ((i % 5 == 0) || (i == angle)) 
+			{
 				Serial.print(i);
 				Serial.print(" ");
 			}
@@ -82,7 +83,8 @@ void setServoAngle(servo_ &servo, uint8_t angle)
 		for (uint8_t i = servo.last_angle; i >= angle; i--)
 		{
 			uint16_t pulseLen = map(i, 0, 180, servo.pulse_min, servo.pulse_max);
-			if (i % 5 == 0) {
+			if ((i % 5 == 0) || (i == angle))
+			{
 				Serial.print(i);
 				Serial.print(" ");
 			}
@@ -98,14 +100,14 @@ void setServoAngle(servo_ &servo, uint8_t angle)
 
 void flushPacket()
 {
-	for (int i = 0; i < 3; i++)
+	for (int i = 0; i < NUM_SERVOS; i++)
 		angles[i] = 0;
 }
 
 void dispAngles()
 {
 	Serial.println("\n\n>>> Success!");
-	for (i = 0; i < NUM_SERVOS; i++)
+	for (int i = 0; i < NUM_SERVOS; i++)
 	{
 		Serial.print("Servo ");
 		Serial.print(i);
@@ -117,7 +119,7 @@ void dispAngles()
 void updateServo()
 {
 	// Read from python script over serial
-	if (Serial.available() > NUM_SERVOS)
+	if (Serial.available() > 3)
 	{
 		// Parse start limiter
 		if (Serial.read() == 200)
@@ -137,6 +139,11 @@ void updateServo()
 			setServoAngle(servo0, angles[0]);
 			setServoAngle(servo1, angles[1]);
 			setServoAngle(servo2, angles[2]);
+		}
+
+		else if (Serial.read() == 210)
+		{
+			// sendIMUData();
 		}
 	}
 }
