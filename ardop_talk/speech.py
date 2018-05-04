@@ -1,14 +1,18 @@
 import pyttsx
+import inflect
 
-class speech:
+def speak(arg, voice = "english-us"):
 
-	def __init__(self):
-		
-		self.engine = pyttsx.init()
+    engine = pyttsx.init()
+    engine.setProperty('voice', voice)
+    rate = engine.getProperty('rate')
+    engine.setProperty('rate', rate-5)
+    engine.say(arg)
+    engine.say("   ")
+    engine.runAndWait()
 
+def numToWords(arg):
 
-	def talk(self, text, voice = 'english-us'):
-		
-		self.engine.setProperty('voice', voice)
-		self.engine.say(text)
-		self.engine.runAndWait()
+	p = inflect.engine()
+	return p.number_to_words(arg)
+
