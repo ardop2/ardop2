@@ -735,6 +735,7 @@
 			friction="1" />
 	</joint>
 
+
 	<gazebo 
 		reference="odom">
 	</gazebo>
@@ -809,6 +810,41 @@
 	</gazebo>
 
 	<gazebo>
+
+		<plugin name="differential_drive_controller_1" filename="libgazebo_ros_diff_drive.so">
+			<legacyMode>true</legacyMode>
+            <alwaysOn>true</alwaysOn>
+            <update>100</update>
+            <updateRate>100.0</updateRate>
+            <leftJoint>wheel_front_right_joint</leftJoint>
+            <rightJoint>wheel_front_left_joint</rightJoint>
+            <wheelSeparation>0.485</wheelSeparation>
+            <wheelDiameter>0.10</wheelDiameter>
+            <wheelAcceleration>0</wheelAcceleration>
+            <wheelTorque>20</wheelTorque>
+            <interface:position name="position_iface_1"/>
+            <commandTopic>cmd_vel</commandTopic>
+            <odometrySource>odom</odometrySource>
+            <odometryFrame>odom</odometryFrame>
+        </plugin>
+
+        <plugin name="differential_drive_controller_2" filename="libgazebo_ros_diff_drive.so">
+        	<legacyMode>true</legacyMode>
+            <alwaysOn>true</alwaysOn>
+            <update>100</update>
+            <updateRate>100.0</updateRate>
+            <leftJoint>wheel_back_right_joint</leftJoint>
+            <rightJoint>wheel_back_left_joint</rightJoint>
+            <wheelSeparation>0.485</wheelSeparation>
+            <wheelDiameter>0.10</wheelDiameter>
+            <wheelAcceleration>0</wheelAcceleration>
+            <wheelTorque>20</wheelTorque>
+            <interface:position name="position_iface_2"/>
+            <commandTopic>cmd_vel</commandTopic>
+            <odometrySource>odom</odometrySource>
+ 			<odometryFrame>odom</odometryFrame>
+        <plugin>
+
 		<plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
 			<robotNamespace>/ardop</robotNamespace>
 			<robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
@@ -818,10 +854,10 @@
 	<transmission name="wheel_front_left_joint_trans">
 		<type>transmission_interface/SimpleTransmission</type>
 		<joint name="wheel_front_left_joint">
-			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+			<hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
 		</joint>
 		<actuator name="wheel_front_left_motor">
-			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+			<hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
 			<mechanicalReduction>1</mechanicalReduction>
 		</actuator>
 	</transmission>
@@ -829,10 +865,10 @@
 	<transmission name="wheel_front_right_joint_trans">
 		<type>transmission_interface/SimpleTransmission</type>
 		<joint name="wheel_front_right_joint">
-			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+			<hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
 		</joint>
 		<actuator name="wheel_front_right_motor">
-			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+			<hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
 			<mechanicalReduction>1</mechanicalReduction>
 		</actuator>
 	</transmission>
@@ -840,10 +876,10 @@
 	<transmission name="wheel_back_left_joint_trans">
 		<type>transmission_interface/SimpleTransmission</type>
 		<joint name="wheel_back_left_joint">
-			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+			<hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
 		</joint>
 		<actuator name="wheel_back_left_motor">
-			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+			<hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
 			<mechanicalReduction>1</mechanicalReduction>
 		</actuator>
 	</transmission>
@@ -851,10 +887,10 @@
 	<transmission name="wheel_back_right_joint_trans">
 		<type>transmission_interface/SimpleTransmission</type>
 		<joint name="wheel_back_right_joint">
-			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+			<hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
 		</joint>
 		<actuator name="wheel_back_right_motor">
-			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+			<hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
 			<mechanicalReduction>1</mechanicalReduction>
 		</actuator>
 	</transmission>

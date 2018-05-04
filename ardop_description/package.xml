@@ -12,7 +12,11 @@
 	<maintainer email="heethesh@cmu.edu" />
 	<license>BSD</license>
 
+	
 	<buildtool_depend>catkin</buildtool_depend>
+
+
+
 	<build_depend>roslaunch</build_depend>
 	<build_depend>controller_manager</build_depend>
 	<build_depend>urdf</build_depend>
@@ -26,6 +30,7 @@
 	<run_depend>controller_manager</run_depend>
 	<run_depend>gazebo</run_depend>
 	<run_depend>urdf</run_depend>  
+	<run_depend>rospy</run_depend>
 
 	<export>
 		<gazebo_ros_control plugin="${prefix}/robot_hw_sim_plugins.xml" />

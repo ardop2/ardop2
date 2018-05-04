@@ -40,6 +40,13 @@
 		<remap
 			from="/joint_states"
 			to="/ardop/joint_states" />
+
 	</node>
+
+	<node 
+		name="odom_pub" 
+		pkg="ardop_description"
+		type="odom_pub.py" 
+		respawn="true" />
 
 </launch>

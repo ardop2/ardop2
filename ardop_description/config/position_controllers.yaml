@@ -39,21 +39,21 @@ ardop:
     pid: {p: 100.0, i: 0.01, d: 10.0}
 
   wheel_front_left_joint_position_controller:
-    type: effort_controllers/JointPositionController
+    type: velocity_controllers/JointVelocityController
     joint: wheel_front_left_joint
     pid: {p: 100.0, i: 0.01, d: 10.0}
 
   wheel_front_right_joint_position_controller:
-    type: effort_controllers/JointPositionController
+    type: velocity_controllers/JointVelocityController
     joint: wheel_front_right_joint
     pid: {p: 100.0, i: 0.01, d: 10.0}
 
   wheel_back_left_joint_position_controller:
-    type: effort_controllers/JointPositionController
+    type: velocity_controllers/JointVelocityController
     joint: wheel_back_left_joint
     pid: {p: 100.0, i: 0.01, d: 10.0}
 
   wheel_back_right_joint_position_controller:
-    type: effort_controllers/JointPositionController
+    type: velocity_controllers/JointVelocityController
     joint: wheel_back_right_joint
     pid: {p: 100.0, i: 0.01, d: 10.0}
