@@ -1,2 +1,3 @@
 # ARDOP 2.0
-TBA
+Autonomous Robot Development Open-Source Platform 2.0
+Exclusively developed on ROS Kinetic
